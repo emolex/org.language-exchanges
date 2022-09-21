@@ -1,31 +1,32 @@
 package page.objects;
 
-import org.openqa.selenium.WebDriver;
+import driver.manager.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import waits.WaitForIt;
+import static waits.WaitForIt.*;
 
 public class LandingPage {
 
-    private WebDriver driver;
-
-    public LandingPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public LandingPage() {
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
     @FindBy(id = "registerButton")
-    private WebElement registerButton;
+    protected WebElement registerButton;
 
     @FindBy (id = "loginButton")
-    private WebElement loginButton;
+    protected WebElement loginButton;
 
 
     public void clickOnRegisterButton () {
+        waitUntilElementIsClickable(registerButton);
         registerButton.click();
     }
 
     public void clickOnLoginButton () {
+        waitUntilElementIsClickable(loginButton);
         loginButton.click();
     }
 

@@ -1,38 +1,36 @@
 package page.objects;
 
-import org.openqa.selenium.WebDriver;
+import driver.manager.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import static waits.WaitForIt.*;
 
 public class LoginPage {
 
-    private WebDriver driver;
 
-    public LoginPage (WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements( driver, this);
-    }
-
-    @FindBy (id = "edit-name")
+    @FindBy(id = "edit-name")
     WebElement loginField;
-
-    @FindBy (id = "edit-pass")
+    @FindBy(id = "edit-pass")
     WebElement passwordField;
-
     @FindBy(id = "edit-submit")
     WebElement loginInButton;
-
     @FindBy(xpath = "//*[@role='alert']")
     WebElement alert;
 
-    public void asserrtion (WebElement actualElement, String expected ) {
-        String actualText = actualElement.getText().toString();
+    public LoginPage() {
+
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
+    }
+
+    public void asserrtion(WebElement actualElement, String expected) {
+        String actualText = actualElement.getText();
         Assert.assertEquals(actualText, expected);
     }
 
-    public void login (String login, String password) {
+    public void login(String login, String password) {
+        waitUntilElementIsClickable(loginField);
         loginField.sendKeys(login);
         passwordField.sendKeys(password);
         loginInButton.click();

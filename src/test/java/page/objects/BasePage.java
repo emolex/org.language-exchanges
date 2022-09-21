@@ -1,31 +1,29 @@
 package page.objects;
 
+import driver.manager.DriverManager;
+import driver.manager.DriverUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-
-import java.time.Duration;
 
 public class BasePage {
 
-    private WebDriver driver;
 
-     LoginPage  loginPage;
-    LandingPage landingPage;
+
+    public LoginPage loginPage;
+    public LandingPage landingPage;
 
 
     @BeforeTest
     public void SetUp() {
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/resources/drivers/chromedriver.exe");
-        driver = new ChromeDriver();driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        loginPage = new LoginPage(driver);
-        landingPage = new LandingPage(driver);
+        DriverManager.getWebDriver();
+        DriverUtils.setInitialConfiguration();
+        loginPage = new LoginPage();
+        landingPage = new LandingPage();
     }
 
     @BeforeMethod
     public void beforeTest() {
-        driver.navigate().to("https://www.language-exchanges.org/");
+        DriverUtils.navigateToPage("https://www.language-exchanges.org/");
 
 
 
@@ -33,8 +31,7 @@ public class BasePage {
 
     @AfterTest
     public void afterTest() {
-        driver.close();
-        driver.quit();
+        DriverManager.disposeDriver();
     }
 
 

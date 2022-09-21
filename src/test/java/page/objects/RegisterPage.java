@@ -1,15 +1,13 @@
 package page.objects;
 
-import org.openqa.selenium.WebDriver;
+import driver.manager.DriverManager;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPage {
 
-    private WebDriver driver;
+    public RegisterPage() {
 
-    public RegisterPage (WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
 
