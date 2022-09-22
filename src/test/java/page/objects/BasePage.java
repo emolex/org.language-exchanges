@@ -2,16 +2,15 @@ package page.objects;
 
 import driver.manager.DriverManager;
 import driver.manager.DriverUtils;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+
 
 public class BasePage {
 
-
-
     public LoginPage loginPage;
     public LandingPage landingPage;
-
 
     @BeforeTest
     public void SetUp() {
@@ -24,7 +23,6 @@ public class BasePage {
     @BeforeMethod
     public void beforeTest() {
         DriverUtils.navigateToPage("https://www.language-exchanges.org/");
-
 
 
     }
