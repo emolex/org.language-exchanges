@@ -11,6 +11,7 @@ public class BasePage {
 
     public LoginPage loginPage;
     public LandingPage landingPage;
+    public RegisterPage registerPage;
 
     @BeforeTest
     public void SetUp() {
@@ -18,18 +19,17 @@ public class BasePage {
         DriverUtils.setInitialConfiguration();
         loginPage = new LoginPage();
         landingPage = new LandingPage();
+        registerPage = new RegisterPage();
     }
 
     @BeforeMethod
     public void beforeTest() {
         DriverUtils.navigateToPage("https://www.language-exchanges.org/");
-
-
     }
 
     @AfterTest
     public void afterTest() {
-        DriverManager.disposeDriver();
+//        DriverManager.disposeDriver();
     }
 
 

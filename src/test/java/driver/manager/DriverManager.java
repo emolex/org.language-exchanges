@@ -5,7 +5,7 @@ import static driver.manager.BrowserType.*;
 
 public class DriverManager {
     private static WebDriver driver;
-    private static final BrowserType BROWSER_TYPE=FIREFOX;
+    private static final BrowserType BROWSER_TYPE=CHROME;
 
     private DriverManager () {
 

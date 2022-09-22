@@ -1,6 +1,8 @@
 package page.objects;
 
 import driver.manager.DriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,6 +11,7 @@ import static waits.WaitForIt.*;
 
 public class LoginPage {
 
+    Logger logger = LogManager.getRootLogger();
 
     @FindBy(id = "edit-name")
     WebElement loginField;
@@ -30,10 +33,14 @@ public class LoginPage {
     }
 
     public void login(String login, String password) {
+        logger.info("Trying to type login...{}");
         waitUntilElementIsClickable(loginField);
         loginField.sendKeys(login);
+        logger.info("Trying to type password...{}");
         passwordField.sendKeys(password);
+        logger.info("Trying to login...{}");
         loginInButton.click();
+        logger.info("Checking displayed alert...{}", alert);
         asserrtion(alert, "×\n" +
                 "Error message\n" +
                 "Unrecognized username or password. Forgot your password?");
