@@ -11,7 +11,7 @@ public class WaitForIt {
 
 
     private static WebDriverWait getWebDriverWait() {
-        return new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(10));
+        return new WebDriverWait(DriverManager.getWebDriver(), Duration.ofSeconds(20));
     }
 
     public static void waitUntilElementIsVisible(WebElement element) {

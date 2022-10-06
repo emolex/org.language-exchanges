@@ -21,16 +21,18 @@ public class LandingPage {
     private WebElement loginButton;
 
 
-    public void clickOnRegisterButton () {
+    public RegisterPage clickOnRegisterButton () {
         waitUntilElementIsClickable(registerButton);
         registerButton.click();
         logger.info("Trying to click on register button...{}");
+        return new RegisterPage();
     }
 
-    public void clickOnLoginButton () {
+    public LoginPage clickOnLoginButton () {
         waitUntilElementIsClickable(loginButton);
         loginButton.click();
         logger.info("Trying to click on login button one the land...{}");
+        return new LoginPage();
     }
 
 }
