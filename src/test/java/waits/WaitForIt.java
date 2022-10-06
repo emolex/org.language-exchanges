@@ -24,4 +24,12 @@ public class WaitForIt {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public static void sleep(int timeInMilliseconds) {
+        try {
+            Thread.sleep(timeInMilliseconds );
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

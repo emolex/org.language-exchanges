@@ -1,5 +1,8 @@
 package driver.manager;
 
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
 public class DriverUtils {
 
     public static void setInitialConfiguration() {
@@ -9,6 +12,11 @@ public class DriverUtils {
 
     public static void navigateToPage(String pageUrl) {
         DriverManager.getWebDriver().navigate().to(pageUrl);
+    }
+
+    public static void asserrtion(WebElement actualElement, String expected) {
+        String actualText = actualElement.getText();
+        Assert.assertEquals(actualText, expected);
     }
 
 }

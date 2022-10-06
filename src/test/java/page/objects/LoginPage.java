@@ -1,12 +1,13 @@
 package page.objects;
 
 import driver.manager.DriverManager;
+import driver.manager.DriverUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+import static driver.manager.DriverUtils.asserrtion;
 import static waits.WaitForIt.*;
 
 public class LoginPage {
@@ -27,10 +28,10 @@ public class LoginPage {
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void asserrtion(WebElement actualElement, String expected) {
-        String actualText = actualElement.getText();
-        Assert.assertEquals(actualText, expected);
-    }
+//    public void asserrtion(WebElement actualElement, String expected) {
+//        String actualText = actualElement.getText();
+//        Assert.assertEquals(actualText, expected);
+//    }
 
     public void login(String login, String password) {
         logger.info("Trying to type login...{}");

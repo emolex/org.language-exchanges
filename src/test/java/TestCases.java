@@ -6,8 +6,12 @@ public class TestCases extends BasePage {
     @Test
     public void registerUser() {
         landingPage.clickOnRegisterButton()
-                        .completeAllFieldsForRegister("skypeName","187874141","someZoomRoom",
-                "someRegisterName");
+                .completeAllFieldsForRegister("dkyaogdjka1@op.pl","dblkausd5615","skypeName",
+                        "187874141",
+                        "https://zoom.us/meeting/piorunejro",
+                        "someRegisterName")
+                .clickOnCreateNewAccountButton()
+                .checkAlert();
     }
 
     @Test

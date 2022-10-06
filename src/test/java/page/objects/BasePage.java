@@ -29,7 +29,7 @@ public class BasePage {
 
     @AfterTest
     public void afterTest() {
-        DriverManager.disposeDriver();
+//        DriverManager.disposeDriver();
     }
 
 
