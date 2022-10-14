@@ -1,0 +1,13 @@
+page\objects\LoginPage.class
+driver\manager\BrowserFactory$1.class
+driver\manager\BrowserFactory.class
+page\objects\register\RegisterPage.class
+waits\WaitForIt.class
+driver\manager\DriverManager.class
+driver\manager\DriverUtils.class
+page\objects\LandingPage.class
+navigation\ApplicationURLs.class
+driver\manager\BrowserType.class
+TestCases.class
+page\objects\BasePage.class
+page\objects\register\RegisterWebElements.class

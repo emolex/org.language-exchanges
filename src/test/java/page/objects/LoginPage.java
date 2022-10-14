@@ -1,13 +1,12 @@
 package page.objects;
 
 import driver.manager.DriverManager;
-import driver.manager.DriverUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import static driver.manager.DriverUtils.asserrtion;
+import org.testng.Assert;
 import static waits.WaitForIt.*;
 
 public class LoginPage {
@@ -42,7 +41,7 @@ public class LoginPage {
         logger.info("Trying to login...{}");
         loginInButton.click();
         logger.info("Checking displayed alert...{}", alert);
-        asserrtion(alert, "×\n" +
+        Assert.assertEquals(alert.getText(), "×\n" +
                 "Error message\n" +
                 "Unrecognized username or password. Forgot your password?");
     }

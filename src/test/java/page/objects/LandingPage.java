@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import page.objects.register.RegisterPage;
+
 import static waits.WaitForIt.*;
 
 public class LandingPage {
